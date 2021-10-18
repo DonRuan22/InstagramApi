@@ -90,8 +90,8 @@ def handleMessage(senderPsid, receivedMessage):
         if 'text' in receivedMessage:
             receivedMessage['text'] = GoogleTranslator(source='auto', target='en').translate(text=receivedMessage['text'])
             payload = {'sender': senderPsid,'message': receivedMessage['text']}
-            #payload_json = json.loads(payload)
-            #print(payload)
+            payload_json = json.loads(payload)
+            logging.warning(payload)
             response_rasa = requests.post('https://don-mvp-vc5xcezzwa-uc.a.run.app/webhooks/rest/webhook', json = payload, timeout=None)
             logging.warning('response') 
             logging.warning(response_rasa.json()) 
