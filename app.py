@@ -65,7 +65,7 @@ def callSendAPI(senderPsid, response, type_response='message'):
         }    
     headers = {'content-type': 'application/json'}
 
-    url = 'https://graph.facebook.com/v2.6/me/messages?access_token={}'.format(os.environ.get('PAGE_ACCESS_TOKEN'))
+    url = 'https://graph.facebook.com/v11.0/me/messages?access_token={}'.format(os.environ.get('PAGE_ACCESS_TOKEN'))
     r = requests.post(url, json=payload, headers=headers)
     logging.warning(r.request.headers) 
     logging.warning(r.url) 
@@ -191,7 +191,7 @@ def index():
         logging.warning("Response: "+ str(data)) 
         
 
-        if 'object' in body and body['object'] == 'page':
+        if 'object' in body and body['object'] == 'instagram':
             entries = body['entry']
             for entry in entries:
                 webhookEvent = entry['messaging'][0]
