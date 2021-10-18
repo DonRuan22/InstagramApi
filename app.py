@@ -78,7 +78,7 @@ def callSendAPI(senderPsid, response, type_response='message'):
 #Function for handling a message from MESSENGER
 def handleMessage(senderPsid, receivedMessage):
     print("handle message")
-    callSendAPI(senderPsid, "","sender_action")
+    #callSendAPI(senderPsid, "","sender_action")
     global INIT_VARI
     global mId
     logging.warning('mId variable = '+ str(mId))
